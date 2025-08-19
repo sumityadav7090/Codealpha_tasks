@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness Module</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        .slide {
+            display: none;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .active-slide {
+            display: block;
+        }
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-option:hover {
+            transform: scale(1.02);
+        }
+        .dark .slide {
+            background-color: #1f2937;
+            color: #f3f4f6;
+        }
+        .dark .quiz-option {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+        .dark .bg-white {
+            background-color: #1f2937;
+        }
+        .dark .text-gray-800 {
+            color: #f3f4f6;
+        }
+        .dark .text-gray-700 {
+            color: #d1d5db;
+        }
+        .dark .bg-blue-600 {
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Theme and Progress -->
+    
+            <div class="flex items-center justify-between p-4">
+    <!-- Progress bar container -->
+    <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2 mr-4">
+        <div class="progress-bar bg-blue-600 dark:bg-blue-500 h-2 rounded-full" style="width: 5%;"></div>
+    </div>
+    <!-- Developer: sumityadav7090 -->
+
+    <!-- Dark mode toggle -->
+    <button id="theme-toggle" class="p-2 rounded-full bg-gray-300 dark:bg-gray-700">
+        <svg class="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="theme-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 
+                     9.003 9.003 0 0012 21c4.97 0 9-4.03 
+                     9-9a9.002 9.002 0 00-.646-3.354z"/>
+        </svg>
+    </button>
+</div>
+
+    <!-- U3VtaXR5YWRhdjc5MDg= -->
+
+    <!-- Slides Container -->
+    <div class="container mx-auto px-4 pb-16">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active-slide bg-white rounded-lg shadow-xl p-8">
+            <div class="flex flex-col items-center justify-center text-center h-full">
+                <img src="images\title.jpg" alt="Phishing Awareness Module Logo" class="mb-8 rounded-lg shadow-md">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Phishing Attacks: Recognize, Avoid, Protect</h1>
+                <p class="text-xl text-gray-600 mb-8">An interactive cybersecurity awareness module</p>
+                <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg text-lg transition duration-200">
+                    Get Started
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction -->
+        <div class="slide bg-white rounded-lg shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">What is phishing</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg text-gray-700 mb-4">Phishing is a type of cyber attack where an attacker pretends to be a trustworthy entity (like a bank, social media site, or official company) in order to trick people into revealing sensitive information such as passwords, credit card numbers, bank account details, or personal data.</p>
+                    <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-2">
+                        <li>Personal Identification Information (PII)</li>
+                        <li>Financial Information</li>
+                        <li>Account Credentials</li>
+                        <li>Security & Authentication Data</li>
+                        <li>Medical & Insurance Data</li>
+                        <li>Professional / Business Data</li>
+                        <li>Device & Network Data</li>
+                        <li>Digital Assets</li>
+                    </ul>
+                    <p class="text-lg text-gray-700 mb-6">90% of data breaches start with phishing attacks.</p>
+                </div>
+                <div class="flex justify-center">
+                     <!-- Use a relative path instead of file:/// -->
+            <video controls class="rounded-lg shadow-md w-full max-w-md">
+                <source src="videos/What is Phishing.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+                </div>
+            </div>
+            <div class="flex justify-between mt-8">
+                <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+                <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Types of Phishing -->
+        <div class="slide bg-white rounded-lg shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Types of Phishing Attacks</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">Email Phishing</h3>
+                    <p class="text-gray-700">Description: Mass emails pretending to be from trusted organizations.</p>
+                    <p class="text-gray-700">Goal: Trick victims into clicking malicious links or entering credentials.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">Spear Phishing</h3>
+                    <p class="text-gray-700">Description: Highly targeted attack aimed at a specific person or organization.</p>
+                     <p class="text-gray-700">Goal: Steal sensitive data using personal details to appear more convincing.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">Whaling</h3>
+                    <p class="text-gray-700">Description: A form of spear phishing that targets high-profile executives (CEOs, CFOs).</p>
+                     <p class="text-gray-700">Goal: Access corporate secrets, authorize fake payments, or steal credentials.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">Clone Phishing</h3>
+                    <p class="text-gray-700">Description: An attacker copies a legitimate email, modifies it, and resends it with malicious links/attachments.</p>
+                     <p class="text-gray-700">Goal: Exploit victim’s trust in the original email.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">Smishing (SMS Phishing)</h3>
+                    <p class="text-gray-700">Description: Fraudulent messages sent via SMS or messaging apps.</p>
+                     <p class="text-gray-700">Goal: Lead victims to fake websites or steal OTPs.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> Vishing (Voice Phishing)</h3>
+                    <p class="text-gray-700">Description: Fake phone calls from attackers pretending to be bank staff, tech support, or officials.</p>
+                     <p class="text-gray-700">Goal: Get victims to reveal sensitive information or make payments.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> Search Engine Phishing</h3>
+                    <p class="text-gray-700">Description: Fake websites optimized to appear in search results.</p>
+                     <p class="text-gray-700">Goal: Trick users into visiting malicious sites when searching for products or services.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> Evil Twin Phishing</h3>
+                    <p class="text-gray-700">Description: Attacker sets up a fake Wi-Fi hotspot that looks like a legitimate one.</p>
+                     <p class="text-gray-700">Goal: Intercept login credentials and network traffic.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> HTTPS/Padlock Phishing</h3>
+                    <p class="text-gray-700">Description: Attackers use fake sites with HTTPS to appear secure.</p>
+                     <p class="text-gray-700">Goal: Trick users into trusting the fake site because of the padlock icon.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> Angler Phishing</h3>
+                    <p class="text-gray-700">Description: Fake customer support accounts on social media reply to user complaints.</p>
+                     <p class="text-gray-700">Goal: Steal credentials or direct victims to malicious links.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2">  Business Email Compromise (BEC)</h3>
+                    <p class="text-gray-700">Description: Attacker spoofs or hacks a company email to request money or sensitive data.</p>
+                     <p class="text-gray-700">Goal: Trick employees into transferring funds or revealing confidential information.</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-lg text-blue-700 mb-2"> Tabnabbing</h3>
+                    <p class="text-gray-700">Description: A browser tab refreshes in the background and changes to a phishing page.</p>
+                     <p class="text-gray-700">Goal: Capture credentials when the user returns to the tab.</p>
+                </div>
+            </div>
+            <div class="flex justify-between mt-8">
+                 <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+                <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+            </div>
+        </div> 
+        
+       <!-- Slide 4: Recognizing Phishing Emails -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Recognizing Phishing Emails</h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Left: Red Flags List + Tips -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Common Red Flags to Watch For:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><span class="font-semibold text-red-600">Generic greetings</span> (e.g., "Dear Customer") – attackers don’t know your real name.</li>
+                <li><span class="font-semibold text-red-600">Spelling & grammar mistakes</span> – poor language is often a giveaway.</li>
+                <li><span class="font-semibold text-red-600">Suspicious sender addresses</span> – check for misspelled domains (e.g., your-banck.com).</li>
+                <li><span class="font-semibold text-red-600">Urgency & scare tactics</span> – “Act now or lose access!” is designed to rush you.</li>
+                <li><span class="font-semibold text-red-600">Requests for sensitive data</span> – legitimate companies never ask for passwords via email.</li>
+                <li><span class="font-semibold text-red-600">Mismatched or shortened links</span> – hover before you click to see the real destination.</li>
+                <li><span class="font-semibold text-red-600">Unexpected attachments</span> – could contain malware or ransomware.</li>
+            </ul>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-yellow-800 mb-2">💡 Pro Tips:</h4>
+                <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                    <li>Always verify suspicious emails through official contact channels.</li>
+                    <li>Enable multi-factor authentication (MFA) to reduce account takeover risks.</li>
+                    <li>Report phishing attempts to your IT/security team immediately.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right: Phishing Email Example -->
+        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50 shadow-sm">
+            <h4 class="text-lg font-semibold mb-2">📧 Example of a Phishing Email</h4>
+            
+            <div class="bg-white p-4 border border-gray-200 rounded space-y-2">
+                <p class="text-gray-800 font-semibold">
+                    From: <span class="bg-red-100 text-red-700 px-1 rounded">security@your-banck.com</span> 
+                    <small class="text-xs text-gray-500">(misspelled domain)</small>
+                </p>
+                <p class="text-gray-800 font-semibold">
+                    Subject: <span class="bg-yellow-100 text-yellow-700 px-1 rounded">URGENT: Account Verification Required</span>
+                </p>
+                <p class="text-gray-700 mt-4">
+                    <span class="bg-red-100 text-red-700 px-1 rounded">Dear Customer</span>,
+                </p>
+                <p class="text-gray-700">
+                    We noticed unusual activity on your account. 
+                    <span class="bg-yellow-100 text-yellow-700 px-1 rounded">To prevent suspension</span>, please verify your account immediately by clicking the link below:
+                </p>
+                <p class="text-gray-700 mt-2">
+                    <a href="#" class="text-blue-600 hover:underline bg-red-100 text-red-700 px-1 rounded">
+                        https://your-banck.com/secure-verify
+                    </a> 
+                    <small class="text-xs text-gray-500">(mismatched link)</small>
+                </p>
+                <p class="text-gray-700 mt-4">
+                    Sincerely,<br>
+                    <span class="bg-gray-100 px-1 rounded">Security Team</span>
+                </p>
+            </div>
+
+            <p class="text-red-600 mt-3 font-semibold">🔍 Can you spot all the red flags in this email?</p>
+        </div>
+    </div>
+
+    <!-- Extra Tip Section -->
+    <div class="mt-6 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
+        <p class="text-blue-800 font-semibold">📢 Remember:</p>
+        <p class="text-gray-700">
+            Even the most convincing emails can be fake. Take your time, think before you click, and when in doubt — throw it out!
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" 
+                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">
+            Back
+        </button>
+        <button onclick="nextSlide()" 
+                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+            Next
+        </button>
+    </div>
+</div>
+
+
+       <!-- Slide 5: Email Address Analysis -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Analyzing Email Addresses</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+        
+        <!-- Left: Key Checks -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">What to Look For:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><span class="font-semibold text-red-600">Misspelled company names</span> – e.g., <code>@paypai.com</code> instead of <code>@paypal.com</code>.</li>
+                <li><span class="font-semibold text-red-600">Domain variations</span> – e.g., <code>@amazon-support.net</code> instead of <code>@amazon.com</code>.</li>
+                <li><span class="font-semibold text-red-600">Use of free email services</span> – e.g., <code>@gmail.com</code> for “official” bank emails.</li>
+                <li><span class="font-semibold text-red-600">Suspicious local parts</span> – e.g., <code>service.paypal@gmail.com</code> pretending to be PayPal.</li>
+                <li><span class="font-semibold text-red-600">Extra or strange characters</span> – e.g., <code>supp0rt@company.com</code> (zero instead of “o”).</li>
+                <li><span class="font-semibold text-red-600">Foreign domains for local businesses</span> – e.g., <code>@bankname.cn</code> when your bank is in the US/India.</li>
+            </ul>
+
+            <!-- Tip Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded">
+                <p class="text-yellow-700">
+                    <strong>💡 Tip:</strong> Hover over the sender’s name in your email client to reveal the real address. 
+                    If it doesn’t match the official domain, it’s likely a scam.
+                </p>
+            </div>
+
+            <!-- Pro Tip -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                <p class="text-blue-800 font-semibold">🔍 Quick Check:</p>
+                <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                    <li>Look at the part after the “@” — that’s the domain.</li>
+                    <li>Check for tiny changes like extra letters, hyphens, or numbers.</li>
+                    <li>Compare it with the company’s official website domain.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right: Examples -->
+        <div class="flex flex-col space-y-4">
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="text-green-600 font-semibold">✅ Legitimate:</p>
+                <p>support@microsoft.com</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="text-red-600 font-semibold">❌ Suspicious:</p>
+                <p>support@micros0ft.com <small>(zero instead of “o”)</small></p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="text-green-600 font-semibold">✅ Legitimate:</p>
+                <p>john.smith@companydomain.com</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="text-red-600 font-semibold">❌ Suspicious:</p>
+                <p>john.smith123@gmail.com <small>(pretending to be work email)</small></p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+                <p class="text-red-600 font-semibold">❌ Suspicious:</p>
+                <p>bank-alert@secure-banklogin.com <small>(fake domain with extra words)</small></p>
+            </div>
+        </div>
+    </div>
+    <!-- U3VtaXR5YWRhdjc5MDg= -->
+
+    <!-- Bottom Reminder -->
+    <div class="mt-6 bg-red-50 border-l-4 border-red-400 p-4 rounded">
+        <p class="text-red-800 font-semibold">⚠️ Remember:</p>
+        <p class="text-gray-700">
+            Cybercriminals rely on you not noticing small details. Always inspect the email address closely before trusting it.
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+       <!-- Slide 6: Fake Websites Identification -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Identifying Fake Websites</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Left Column: Warnings -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Warning Signs:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><span class="text-red-600 font-semibold">Misspelled URLs</span> – e.g., <code>paypa1.com</code> instead of <code>paypal.com</code>.</li>
+                <li><span class="text-red-600 font-semibold">No padlock icon</span> 🔓 – insecure websites without HTTPS.</li>
+                <li><span class="text-red-600 font-semibold">"Not secure"</span> warning in your browser.</li>
+                <li><span class="text-red-600 font-semibold">Poor design or mismatched branding</span> – wrong colors, low-quality logos.</li>
+                <li><span class="text-red-600 font-semibold">Unnecessary data requests</span> – asking for full SSN, passwords, or banking info without reason.</li>
+                <li><span class="text-red-600 font-semibold">Pop-up overload</span> – constant pop-ups asking to “verify” info.</li>
+                <li><span class="text-red-600 font-semibold">Too-good-to-be-true offers</span> – huge discounts or prizes for no reason.</li>
+                <li><span class="text-red-600 font-semibold">Fake customer support chats</span> – push you to share credentials.</li>
+            </ul>
+
+            <!-- Pro Tip -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4 rounded">
+                <p class="text-blue-700">
+                    <strong>💡 Pro Tip:</strong> Click the padlock in the browser bar to view the SSL certificate details. 
+                    Ensure it matches the company name and domain.
+                </p>
+            </div>
+
+            <!-- Quick Checklist -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+                <p class="text-green-800 font-semibold mb-2">✅ Quick Safety Checklist:</p>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Check domain spelling carefully.</li>
+                    <li>Verify HTTPS & SSL certificate details.</li>
+                    <li>Look for contact info & privacy policy.</li>
+                    <li>Search for reviews or scam reports.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Column: Example -->
+        <div class="flex flex-col items-center">
+            <img src="images/Comparisonofrealvsfakebankingwebsites1.png" alt="Comparison of real vs fake banking websites" class="rounded-lg shadow-md mb-4">
+            <p class="text-sm text-gray-600 mb-4">Compare domain names carefully — fake sites often make tiny changes that are easy to miss.</p>
+
+            <!-- Extra Example Table -->
+            <table class="w-full text-sm border border-gray-300">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="border border-gray-300 p-2">Legitimate</th>
+                        <th class="border border-gray-300 p-2">Suspicious</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-green-600">www.paypal.com</td>
+                        <td class="border border-gray-300 p-2 text-red-600">www.paypa1.com</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-green-600">www.amazon.com</td>
+                        <td class="border border-gray-300 p-2 text-red-600">www.amazon-support.net</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-green-600">www.icicibank.com</td>
+                        <td class="border border-gray-300 p-2 text-red-600">www.icicibank-login.co</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+        <!-- Slide 7: Real-World Examples -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Notable Phishing Attacks</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Case Study 1 -->
+        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50">
+            <h3 class="text-xl font-semibold mb-2">Target Data Breach (2013)</h3>
+            <p class="text-gray-700 mb-2">
+                One of the largest retail breaches in history. Hackers gained network access by sending a 
+                phishing email to an HVAC vendor that worked with Target. Using the stolen credentials, 
+                they infiltrated Target’s network, eventually installing malware on POS systems.
+            </p>
+            <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-1">
+                <li><strong>Entry Point:</strong> Compromised third-party vendor account.</li>
+                <li><strong>Data Stolen:</strong> 40 million credit/debit card details & 70 million personal records.</li>
+                <li><strong>Impact:</strong> $162M+ in losses, CEO resignation, and major trust damage.</li>
+                <li><strong>Lesson:</strong> Third-party security is as important as internal security.</li>
+            </ul>
+            <img src="images/TimelineofTargetDatabreach.png" alt="Target data breach timeline" class="mt-4 rounded-lg shadow-md">
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50">
+            <h3 class="text-xl font-semibold mb-2">Google Docs Phishing (2017)</h3>
+            <p class="text-gray-700 mb-2">
+                A sophisticated phishing campaign that disguised itself as a legitimate Google Docs invitation. 
+                Victims who clicked the link were prompted to give permissions to a malicious app mimicking Google Docs.
+            </p>
+            <ul class="list-disc pl-5 text-gray-700 mb-4 space-y-1">
+                <li><strong>Entry Point:</strong> Malicious OAuth app via fake Google Docs invite.</li>
+                <li><strong>Data Stolen:</strong> Gmail account access, contacts, and emails of over 1 million users.</li>
+                <li><strong>Impact:</strong> Google revoked access within hours, but many users had already been compromised.</li>
+                <li><strong>Lesson:</strong> Always check the app permissions before granting access to your account.</li>
+            </ul>
+            <img src="images/Googledocsphishingexample.png" alt="Google docs phishing example" class="mt-4 rounded-lg shadow-md">
+        </div>
+    </div>
+
+    <!-- Additional Examples -->
+    <div class="mt-8 border border-gray-200 p-4 rounded-lg bg-white">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Other Noteworthy Attacks:</h3>
+        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li><strong>Facebook & Google (2013–2015):</strong> Lost $100M+ to a fake invoice phishing scam by a Lithuanian hacker posing as a hardware supplier.</li>
+            <li><strong>Colonial Pipeline (2021):</strong> Ransomware attack initiated from a compromised VPN account via phishing, disrupting US fuel supply.</li>
+            <li><strong>Twitter Bitcoin Scam (2020):</strong> Social engineering & phishing compromised employee tools, taking over high-profile accounts to promote a crypto scam.</li>
+        </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+        <!-- Slide 8: Social Engineering Tactics -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Social Engineering Tactics</h2>
+    
+    <!-- Tactics Grid -->
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Urgency</h3>
+            <p class="text-gray-700">"Your account will be closed in 24 hours!" – creates panic so the victim acts without thinking.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Authority</h3>
+            <p class="text-gray-700">Impersonating IT support, law enforcement, or a company executive to make the victim comply.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Familiarity</h3>
+            <p class="text-gray-700">Using personal info from social media to appear trustworthy and establish rapport.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Scarcity</h3>
+            <p class="text-gray-700">"Only 2 hours left to claim your reward!" – makes the victim fear missing out.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Pretexting</h3>
+            <p class="text-gray-700">Creating a believable but false scenario (e.g., fake customer survey) to extract information.</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Baiting</h3>
+            <p class="text-gray-700">Offering something enticing (e.g., free gift card, free download) to trick victims into revealing data.</p>
+        </div>
+    </div>
+
+    <!-- Defense Strategies -->
+    <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+        <h3 class="text-lg font-semibold text-red-800 mb-2">How to Defend Against Social Engineering:</h3>
+        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li><strong>Verify requests</strong> through official channels before responding.</li>
+            <li>Never share passwords, OTPs, or sensitive data via email, phone, or chat.</li>
+            <li>Be skeptical of urgent or emotionally charged requests.</li>
+            <li>Use multi-factor authentication (MFA) to protect accounts even if credentials are stolen.</li>
+            <li>Limit personal information shared on social media to reduce attacker knowledge.</li>
+            <li>Participate in phishing simulations and awareness training regularly.</li>
+        </ul>
+    </div>
+
+    <!-- Real-World Case Study -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+        <h3 class="text-lg font-semibold text-yellow-800 mb-2">Case Study: The Twitter Bitcoin Scam (2020)</h3>
+        <p class="text-gray-700 mb-2">
+            Hackers used social engineering to call Twitter employees, posing as IT staff. 
+            They tricked employees into revealing credentials for internal admin tools.
+        </p>
+        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li><strong>Target:</strong> High-profile Twitter accounts (Elon Musk, Bill Gates, Apple, etc.).</li>
+            <li><strong>Goal:</strong> Post Bitcoin scam messages to millions of followers.</li>
+            <li><strong>Impact:</strong> Over $100K stolen within hours, major trust damage to Twitter.</li>
+            <li><strong>Lesson:</strong> Even tech companies can be breached through human manipulation.</li>
+        </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+        <!-- Slide 9: Secure Browsing Practices -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Secure Browsing Practices</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+        
+        <!-- Left Column: Security Habits -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Essential Security Habits:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><strong>Check for HTTPS & Padlock</strong> – Ensure the connection is encrypted before entering sensitive data.</li>
+                <li><strong>Bookmark trusted websites</strong> instead of clicking on links from emails or pop-ups.</li>
+                <li><strong>Be cautious with permissions</strong> – Only allow access to camera, location, or microphone when necessary.</li>
+                <li><strong>Keep your browser updated</strong> – Install the latest security patches and plugin updates.</li>
+                <li><strong>Use strong, unique passwords</strong> for each website and enable Multi-Factor Authentication (MFA).</li>
+                <li><strong>Avoid public Wi-Fi for sensitive tasks</strong> unless using a VPN for encryption.</li>
+                <li><strong>Block pop-ups & ads</strong> to reduce the risk of malvertising attacks.</li>
+            </ul>
+            
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                <p class="text-green-700"><strong>Tip:</strong> Use reputable browser security extensions such as HTTPS Everywhere, uBlock Origin, and Privacy Badger to enhance protection.</p>
+            </div>
+        </div>
+
+        <!-- Right Column: Image + Additional Info -->
+        <div class="flex flex-col items-center">
+            <img src="images/securebrowsingpractices.png" 
+                 alt="Illustration of secure browsing habits" 
+                 class="rounded-lg shadow-md mb-4">
+            
+            <p class="text-gray-600 text-sm text-center">
+                Good browsing habits reduce exposure to phishing, malware, and data theft.
+            </p>
+        </div>
+    </div>
+
+    <!-- Real-World Example -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+        <h3 class="text-lg font-semibold text-yellow-800 mb-2">Case Study: The "Fake Bank Login" Scam</h3>
+        <p class="text-gray-700 mb-2">
+            In 2022, attackers created a website almost identical to a major bank's login page. 
+            The only difference was a missing HTTPS certificate and a slightly misspelled domain.
+            Thousands of users entered their credentials before realizing it was fake.
+        </p>
+        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li><strong>Red Flag:</strong> No padlock icon in the address bar.</li>
+            <li><strong>Prevention:</strong> Bookmark bank login pages instead of searching online.</li>
+            <li><strong>Lesson:</strong> Even a tiny spelling change in a domain can indicate a scam.</li>
+        </ul>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">
+            Back
+        </button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+            Next
+        </button>
+    </div>
+</div>
+
+
+        <!-- Slide 10: Email Security Best Practices -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Email Security Best Practices</h2>
+    
+    <!-- Do and Don't Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Do Column -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">✅ Do:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li>Verify sender email addresses and domain names carefully.</li>
+                <li>Hover over links before clicking to check their true destination.</li>
+                <li>Enable email filtering, spam protection, and phishing detection features.</li>
+                <li>Report suspicious emails to your IT or security team immediately.</li>
+                <li>Use Multi-Factor Authentication (MFA) for all email logins.</li>
+                <li>Regularly update your email password and security settings.</li>
+            </ul>
+        </div>
+        
+        <!-- Don't Column -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">❌ Don't:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li>Open attachments from unknown or unverified senders.</li>
+                <li>Reply to suspicious messages, especially those asking for personal data.</li>
+                <li>Provide sensitive information (passwords, banking details) via email.</li>
+                <li>Use the same password for multiple accounts.</li>
+                <li>Click on links in emails that create a sense of urgency or fear.</li>
+                <li>Disable security warnings from your email client.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Pro Tip Section -->
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
+        <p class="text-blue-700"><strong>Pro Tip:</strong> Use a secure email gateway and enable domain-based message authentication (DMARC, DKIM, SPF) to prevent spoofed emails from reaching your inbox.</p>
+    </div>
+
+    <!-- Real-World Case Study -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6">
+        <h3 class="text-lg font-semibold text-yellow-800 mb-2">Case Study: The “CEO Fraud” Scam</h3>
+        <p class="text-gray-700 mb-2">
+            In a 2021 incident, cybercriminals impersonated a company's CEO using a spoofed email address and convinced the finance department to transfer $200,000 to a fraudulent account.  
+        </p>
+        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li><strong>Red Flag:</strong> Email domain had one extra letter compared to the real company domain.</li>
+            <li><strong>Prevention:</strong> Always confirm high-value transfer requests via a direct phone call.</li>
+        </ul>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">
+            Back
+        </button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+            Next
+        </button>
+    </div>
+</div>
+
+<!-- Slide 11: Security Tools -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Essential Security Tools</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Tools Lists -->
+        <div>
+            <!-- Must-Have Protections -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h3 class="text-xl font-semibold text-blue-700 mb-2">Must-Have Protections:</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Password managers for secure credential storage</li>
+                    <li>Two-factor/multi-factor authentication apps</li>
+                    <li>Reputable antivirus/anti-malware software</li>
+                    <li>VPN for securing public WiFi connections</li>
+                    <li>Browser security and privacy extensions</li>
+                    <li>Secure cloud storage with encryption</li>
+                    <li>Firewall configuration & intrusion detection tools</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Tools -->
+            <div class="bg-green-50 p-4 rounded-lg">
+                <h3 class="text-xl font-semibold text-green-700 mb-2">Recommended Tools:</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li><strong>Password Managers:</strong> Bitwarden, LastPass, 1Password</li>
+                    <li><strong>2FA Apps:</strong> Google Authenticator, Authy, Microsoft Authenticator</li>
+                    <li><strong>Antivirus:</strong> Malwarebytes, Norton, Kaspersky</li>
+                    <li><strong>VPN:</strong> ExpressVPN, NordVPN, ProtonVPN</li>
+                    <li><strong>Browser Extensions:</strong> uBlock Origin, HTTPS Everywhere, Privacy Badger</li>
+                    <li><strong>File Encryption:</strong> VeraCrypt, AxCrypt</li>
+                    <li><strong>Backup Tools:</strong> Acronis True Image, Backblaze</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Visual & Security Tip -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Iconsofcommonsecuritytools.jpg" alt="Icons of common security tools" class="rounded-lg shadow-md">
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 w-full rounded">
+                <p class="text-yellow-700">
+                    <strong>Pro Tip:</strong> Always download security tools from their official websites to avoid fake or malicious versions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+       <!-- Slide 12: Case Study Deep Dive -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Phishing Case Study: The Twitter Hack</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Column: Details -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">What Happened:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li>In July 2020, attackers compromised 130 high-profile Twitter accounts, including those of Elon Musk, Bill Gates, Apple, and Barack Obama.</li>
+                <li>They used <strong>phone spear phishing</strong> to trick Twitter employees into revealing credentials for internal tools.</li>
+                <li>Gained administrative access to reset account passwords and disable two-factor authentication.</li>
+                <li>Posted Bitcoin scam tweets from verified accounts, promising to double any cryptocurrency sent to a given address.</li>
+                <li>Resulted in over <strong>$118,000</strong> worth of Bitcoin stolen within hours.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">How It Happened:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li>Attackers called multiple Twitter employees posing as IT staff.</li>
+                <li>Used a combination of urgency, authority, and technical jargon to gain trust.</li>
+                <li>Directed employees to fake login portals to steal credentials.</li>
+                <li>Once inside, they escalated privileges to access Twitter’s admin panel.</li>
+            </ul>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <p class="text-yellow-700">
+                    <strong>Key Lesson:</strong> Even tech giants with advanced security systems are vulnerable to social engineering attacks targeting human weaknesses.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Visual & Prevention -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/TimelineofTwitterhackevents.png" alt="Timeline of Twitter hack events" class="rounded-lg shadow-md">
+
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 w-full rounded">
+                <h4 class="text-green-800 font-semibold mb-2">Prevention Measures:</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Mandatory phishing awareness training for all employees.</li>
+                    <li>Implement stricter multi-factor authentication (MFA) for internal tools.</li>
+                    <li>Limit access to admin panels using the principle of least privilege.</li>
+                    <li>Regularly test employees with phishing simulations.</li>
+                    <li>Secure helpdesk procedures to verify caller identity.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+        <!-- Slide 13: Website Verification Quiz -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Spot the Fake Website</h2>
+
+    <div class="max-w-3xl mx-auto">
+        <!-- Main Image -->
+        <img src="images/realfakeTCF.jpg" alt="Comparison of real vs fake banking website screenshot" class="mb-6 rounded-lg shadow-md">
+
+        <!-- Question 1 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">1. Which indicator suggests this website is fake?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    The website has a professional-looking logo
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    The URL contains a misspelling (e.g., chasebanck.com)
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    The homepage has a customer service chat
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">2. Which of these is a sign of a fake banking website?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    The website loads quickly and without errors
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    The contact email is from the bank's official domain
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    The SSL certificate is invalid or missing
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">3. Why is checking the padlock icon important?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    It shows the website is beautiful
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    It confirms the connection is encrypted via HTTPS
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    It proves the site is 100% safe from phishing
+                </div>
+            </div>
+        </div>
+
+        <!-- U3VtaXR5YWRhdjc5MDg= -->
+
+        <!-- Feedback Messages -->
+        <div class="quiz-feedback hidden bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+            <p class="text-green-700"><strong>Correct!</strong> Good catch — that's a common phishing sign.</p>
+        </div>
+        <div class="quiz-feedback hidden bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+            <p class="text-red-700"><strong>Incorrect.</strong> Look for subtle domain changes, SSL issues, or branding inconsistencies.</p>
+        </div>
+
+        <!-- Extra Educational Tip -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8">
+            <h4 class="text-blue-800 font-semibold mb-2">Quick Tips to Verify a Website:</h4>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                <li>Check the domain spelling carefully.</li>
+                <li>Look for HTTPS and a valid SSL certificate.</li>
+                <li>Verify the contact details match the official company website.</li>
+                <li>Be cautious if the site requests sensitive data unexpectedly.</li>
+                <li>Use search engines to cross-check if the URL is reported as fraudulent.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+       <!-- Slide 14: Interactive Quiz -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Test Your Knowledge</h2>
+
+    <div class="max-w-2xl mx-auto">
+        
+        <!-- Question 1 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">1. Which of these email addresses is most likely phishing?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    support@paypa1-security.com
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    support@paypal.com
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    payments@service.paypal.com
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">2. You receive an email claiming to be from your bank asking you to "verify your account" using a link. Which is the safest action?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    Click the link and enter your details quickly
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    Contact your bank directly using their official number
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    Reply to the email asking if it’s real
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">3. Which file attachment is MOST suspicious?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    invoice.pdf
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'wrong')">
+                    company-report.docx
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 cursor-pointer" onclick="checkAnswer(this, 'correct')">
+                    payment-receipt.exe
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Messages -->
+        <div class="quiz-feedback hidden bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+            <p class="text-green-700"><strong>Correct!</strong> You spotted the phishing indicator.</p>
+        </div>
+        <div class="quiz-feedback hidden bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+            <p class="text-red-700"><strong>Incorrect.</strong> Review the phishing signs before proceeding.</p>
+        </div>
+
+        <!-- Extra Tip Section -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8">
+            <h4 class="text-blue-800 font-semibold mb-2">Phishing Quiz Tips:</h4>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                <li>Misspelled domains (e.g., paypa1.com) are red flags.</li>
+                <li>Never click on suspicious links — verify through official channels.</li>
+                <li>Be extra cautious with executable files (.exe, .scr, .bat).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+       <!-- Slide 15: Phishing Simulation (interactive) -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+  <h2 class="text-3xl font-bold text-gray-800 mb-6">Interactive Phishing Simulation</h2>
+
+  <div id="sim-root" class="grid md:grid-cols-2 gap-8 items-start">
+
+    <!-- Left: Simulation panel -->
+    <div>
+      <div class="mb-4">
+        <h3 id="sim-title" class="text-xl font-semibold text-gray-700">Test Your Detection Skills</h3>
+        <p id="sim-instructions" class="text-gray-600">
+          You will be shown 5 simulated emails. For each: choose <strong>Phishing</strong> or <strong>Safe</strong>, then pick which warning signs you spotted.
+        </p>
+      </div>
+
+      <!-- Email card -->
+      <div id="email-card" class="bg-gray-50 border border-gray-200 p-4 rounded-lg mb-6">
+        <div class="flex justify-between items-start mb-3">
+          <div>
+            <p class="text-sm text-gray-500">From: <span id="email-from" class="font-medium text-gray-800"></span></p>
+            <p class="text-sm text-gray-500">Subject: <span id="email-subject" class="font-medium text-gray-800"></span></p>
+          </div>
+          <div class="text-xs text-gray-400" id="email-index">1 / 5</div>
+        </div>
+
+        <div id="email-body" class="text-gray-700 mb-4"></div>
+
+        <!-- Simulated link preview (safe: shows real-looking host; phishing: shows suspicious host) -->
+        <div id="email-link" class="mb-4">
+          <p class="text-xs text-gray-500">Link preview:</p>
+          <a href="#" class="text-blue-600 hover:underline break-words" id="email-link-url">https://example.com/...</a>
+        </div>
+
+        <div class="mb-3">
+          <button id="btn-phishing" class="quiz-option bg-red-50 border border-red-400 text-red-700 font-semibold py-2 px-3 rounded mr-2">Mark as Phishing</button>
+          <button id="btn-safe" class="quiz-option bg-green-50 border border-green-400 text-green-700 font-semibold py-2 px-3 rounded">Mark as Safe</button>
+        </div>
+
+        <div id="flags-area" class="mb-3">
+          <p class="text-sm font-semibold text-gray-700 mb-2">Select warning signs you spotted:</p>
+          <div class="grid grid-cols-1 gap-2">
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="flag-checkbox mr-2" value="generic_greeting"> Generic greeting
+            </label>
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="flag-checkbox mr-2" value="misspelled_domain"> Misspelled domain
+            </label>
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="flag-checkbox mr-2" value="urgent_request"> Urgent request / Threat
+            </label>
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="flag-checkbox mr-2" value="suspicious_sender"> Suspicious sender address
+            </label>
+            <label class="inline-flex items-center">
+              <input type="checkbox" class="flag-checkbox mr-2" value="unexpected_attachment"> Unexpected attachment
+            </label>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button id="btn-submit-sim" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Answer</button>
+          <button id="btn-skip-sim" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-3 rounded">Skip</button>
+          <div id="sim-feedback" class="ml-4 text-sm"></div>
+        </div>
+      </div>
+
+      <!-- Score & controls -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm text-gray-600">Score: <span id="sim-score">0</span></p>
+          <p class="text-sm text-gray-600">Correct: <span id="sim-correct">0</span> • Wrong: <span id="sim-wrong">0</span></p>
+        </div>
+        <div>
+          <button id="btn-restart-sim" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-3 rounded hidden">Restart Simulation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Visual / email screenshot -->
+    <div class="flex flex-col items-center">
+      <img id="sim-image" src="./images/Simulationexample.png"  alt="Simulation example" class="rounded-lg shadow-md mb-4 max-w-full h-auto">
+      <div class="w-full text-sm text-gray-600">
+        <p><strong>Tip:</strong> Hover your mouse over links (or inspect URLs) — real phishing often hides the actual host.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex justify-between mt-8">
+    <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+    <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+  </div>
+</div>
+
+   <!-- Slide 16: Reporting Phishing -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Reporting Phishing Attempts</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Left Section: Steps -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">How to Report:</h3>
+            <ol class="list-decimal pl-5 text-gray-700 mb-6 space-y-3">
+                <li>Forward phishing emails to <strong>reportphishing@yourcompany.com</strong></li>
+                <li>Report fake websites to <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" target="_blank" class="text-blue-600 hover:underline">Google Safe Browsing</a></li>
+                <li>Notify your IT security team immediately</li>
+                <li>File reports with anti-phishing organizations (e.g., <a href="https://apwg.org/reportphishing/" target="_blank" class="text-blue-600 hover:underline">APWG</a>)</li>
+                <li>Alert any impersonated organizations via their official fraud reporting page</li>
+                <li>India: Report on <a href="https://www.cybercrime.gov.in/" target="_blank" class="text-blue-600 hover:underline">National Cyber Crime Reporting Portal (1930) </a></li>
+                <li>US: Forward to <strong>phishing-report@us-cert.gov</strong></li>
+                <li>UK: Forward to <strong>report@phishing.gov.uk</strong></li>
+                <li>Report SMS phishing (smishing) to your telecom provider by forwarding to <strong>7726</strong></li>
+            </ol>
+            
+            <!-- Tip Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                <p class="text-yellow-700">
+                    <strong>Important:</strong> Never reply, click links, or download attachments from suspicious messages.
+                </p>
+            </div>
+
+            <!-- Extra Tip -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                <p class="text-green-700">
+                    <strong>Pro Tip:</strong> Always capture screenshots and full email headers before deleting — this aids forensic investigation.
+                </p>
+            </div>
+
+            <!-- Quick Checklist -->
+            <div class="bg-gray-50 border-l-4 border-gray-300 p-4 mt-4">
+                <h4 class="font-semibold text-gray-800 mb-2">Before Reporting, Ensure You:</h4>
+                <ul class="list-disc pl-5 space-y-1 text-gray-700 text-sm">
+                    <li>Do not open any links</li>
+                    <li>Do not download attachments</li>
+                    <li>Keep the original email intact</li>
+                    <li>Use official channels only</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section: Visual -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Flowchartshowingphishingreportingsteps.png" 
+                 alt="Flowchart showing phishing reporting steps" 
+                 class="rounded-lg shadow-md">
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                Example: You receive a fake PayPal email → Forward to spoof@paypal.com + report to APWG.
+            </div>
+            <!-- Interactive Button -->
+            <a href="https://apwg.org/reportphishing/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                Report a Phishing Attempt Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+       <!-- Slide 17: Response Plan -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Creating a Phishing Response Plan</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Left Section: Steps -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Essential Steps:</h3>
+            <ol class="list-decimal pl-5 text-gray-700 mb-6 space-y-3">
+                <li><strong>Disconnect from the network</strong> if malware infection is suspected.</li>
+                <li>Change all compromised passwords immediately — use strong, unique ones.</li>
+                <li>Run a <strong>full antivirus/anti-malware scan</strong> on all devices.</li>
+                <li>Check email and account activity logs for unauthorized access.</li>
+                <li>Monitor financial accounts for suspicious transactions.</li>
+                <li>Report the incident to your <strong>IT security team</strong> and follow their guidance.</li>
+                <li>Consider identity theft protection services if sensitive personal data was exposed.</li>
+                <li>Enable two-factor authentication (2FA) on all critical accounts.</li>
+            </ol>
+
+            <!-- Quick Recovery Tips -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
+                <p class="text-green-700">
+                    <strong>Recovery Tip:</strong> Keep an “Incident Response Checklist” handy for all employees to follow step-by-step.
+                </p>
+            </div>
+
+            <!-- Incident Log Reminder -->
+            <div class="bg-gray-50 border-l-4 border-gray-300 p-4">
+                <h4 class="font-semibold text-gray-800 mb-2">Maintain an Incident Log:</h4>
+                <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+                    <li>Date & time of incident</li>
+                    <li>Source of phishing attempt</li>
+                    <li>Actions taken</li>
+                    <li>Any losses or data exposed</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section: Visual -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Infographicshowingphishingresponsesteps.png" 
+                 alt="Infographic showing phishing response steps" 
+                 class="rounded-lg shadow-md">
+            <div class="bg-yellow-50 border border-yellow-300 p-3 rounded text-sm text-gray-700">
+                Example: After clicking a suspicious link, an employee immediately disconnected Wi-Fi, changed passwords, and notified IT — preventing further damage.
+            </div>
+        </div>
+    </div>
+
+    <!-- Pro Tip -->
+    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-6">
+        <p class="text-blue-700">
+            <strong>Pro Tip:</strong> Store security team contact info in multiple places — phone, email, and printed emergency cards — for quick reporting.
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+   <!-- Slide 18: Additional Resources -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Further Learning Resources</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+
+        <!-- Articles -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Articles & Guides</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://www.cisa.gov/news-events/news" target="_blank" class="text-blue-600 hover:underline">Identifying Modern Phishing Techniques</a></li>
+                <li><a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" class="text-blue-600 hover:underline">Case Studies of Major Breaches (Verizon DBIR)</a></li>
+                <li><a href="https://www.ncsc.gov.uk/collection/passwords" target="_blank" class="text-blue-600 hover:underline">Password Security Best Practices (NCSC)</a></li>
+                <li><a href="https://www.kaspersky.com/resource-center/threats/phishing" target="_blank" class="text-blue-600 hover:underline">Beginner’s Guide to Phishing</a></li>
+                <li><a href="https://owasp.org/www-community/phishing" target="_blank" class="text-blue-600 hover:underline">OWASP Phishing Resources</a></li>
+            </ul>
+        </div>
+
+        <!-- Tools -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Tools & Checkers</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://haveibeenpwned.com/" target="_blank" class="text-blue-600 hover:underline">Have I Been Pwned?</a> – Check if your email/password was leaked</li>
+                <li><a href="https://passwords.google.com/checkup/start" target="_blank" class="text-blue-600 hover:underline">Google Password Checkup</a></li>
+                <li><a href="https://cofense.com/phish-alert-button/" target="_blank" class="text-blue-600 hover:underline">Phish Alert Button</a></li>
+                <li><a href="https://transparencyreport.google.com/safe-browsing/search" target="_blank" class="text-blue-600 hover:underline">Google Safe Browsing Checker</a></li>
+                <li><a href="https://urlscan.io/" target="_blank" class="text-blue-600 hover:underline">URLScan.io</a> – Scan suspicious links safely</li>
+            </ul>
+        </div>
+
+        <!-- Trainings -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Trainings & Labs</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://tryhackme.com/" target="_blank" class="text-blue-600 hover:underline">TryHackMe – Phishing Rooms</a></li>
+                <li><a href="https://www.cybrary.it/" target="_blank" class="text-blue-600 hover:underline">Cybrary – Cybersecurity Courses</a></li>
+                <li><a href="https://phishingquiz.withgoogle.com/" target="_blank" class="text-blue-600 hover:underline">Google Phishing Quiz</a></li>
+                <li>Quarterly Awareness Training</li>
+                <li>Executive Security Briefings</li>
+            </ul>
+        </div>
+
+        <!-- Videos & Podcasts -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Videos & Podcasts</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://www.youtube.com/user/Computerphile" target="_blank" class="text-blue-600 hover:underline">Computerphile</a></li>
+                <li><a href="https://darknetdiaries.com/" target="_blank" class="text-blue-600 hover:underline">Darknet Diaries</a></li>
+                <li><a href="https://www.youtube.com/c/CyberSecurityVideos" target="_blank" class="text-blue-600 hover:underline">CISA Cybersecurity Videos</a></li>
+                <li><a href="https://www.youtube.com/@TheCyberMentor" target="_blank" class="text-blue-600 hover:underline">The Cyber Mentor</a></li>
+                <li><a href="https://www.youtube.com/@HackerSploit" target="_blank" class="text-blue-600 hover:underline">HackerSploit</a></li>
+            </ul>
+        </div>
+
+        <!-- Books -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Books</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><em>The Art of Deception</em> by Kevin Mitnick – Social engineering insights</li>
+                <li><em>Social Engineering: The Science of Human Hacking</em> by Christopher Hadnagy</li>
+                <li><em>Hacking the Human</em> by Ian Mann – Manipulation in cybersecurity</li>
+            </ul>
+        </div>
+
+        <!-- Certifications -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Certifications</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://www.comptia.org/certifications/security" target="_blank" class="text-blue-600 hover:underline">CompTIA Security+</a></li>
+                <li><a href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/" target="_blank" class="text-blue-600 hover:underline">CEH – Certified Ethical Hacker</a></li>
+                <li><a href="https://www.isc2.org/Certifications/SSCP" target="_blank" class="text-blue-600 hover:underline">SSCP</a> – Systems Security Certified Practitioner</li>
+            </ul>
+        </div>
+
+        <!-- Communities -->
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-lg text-blue-700 mb-2">Communities & Forums</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+                <li><a href="https://www.reddit.com/r/netsec/" target="_blank" class="text-blue-600 hover:underline">Reddit /r/netsec</a></li>
+                <li><a href="https://security.stackexchange.com/" target="_blank" class="text-blue-600 hover:underline">Security StackExchange</a></li>
+                <li><a href="https://discord.gg/infosec" target="_blank" class="text-blue-600 hover:underline">InfoSec Discord</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tip Box -->
+    <div class="bg-green-50 border-l-4 border-green-400 p-4 mt-6">
+        <p class="text-green-700 text-sm">
+            <strong>Tip:</strong> Bookmark these resources, join communities, and practice regularly in safe lab environments to sharpen your skills.
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+       <!-- Slide 19: Mobile Security Considerations -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Mobile Phishing Risks</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Left Section: Threats -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Unique Mobile Threats:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><strong>Fake App Stores & Malicious Apps</strong> – Apps disguised as legitimate banking or shopping apps to steal credentials.</li>
+                <li><strong>Malicious QR Codes</strong> – QR codes leading to phishing websites or automatic malware downloads.</li>
+                <li><strong>Unsecured Public WiFi Networks</strong> – Attackers can intercept unencrypted data (man-in-the-middle attacks).</li>
+                <li><strong>Smishing (SMS Phishing)</strong> – Fraudulent text messages urging urgent action (e.g., “Your account is locked”).</li>
+                <li><strong>Social Media Phishing Scams</strong> – Fake profiles and DMs with malicious links.</li>
+                <li><strong>In-App Phishing</strong> – Malicious pop-ups or ads inside legitimate apps.</li>
+                <li><strong>Fake OS Updates</strong> – Download prompts pretending to be system updates but delivering malware.</li>
+                <li><strong>Calendar Invite Scams</strong> – Malicious calendar invites that contain harmful links.</li>
+            </ul>
+
+            <!-- Preventive Tips -->
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Prevention Tips:</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                <li>Only download apps from official app stores (Google Play, Apple App Store).</li>
+                <li>Verify app permissions before installing — avoid apps asking for excessive access.</li>
+                <li>Use a VPN when on public WiFi to encrypt traffic.</li>
+                <li>Enable 2FA (Two-Factor Authentication) for all critical accounts.</li>
+                <li>Keep your OS and apps updated with the latest security patches.</li>
+                <li>Use mobile security apps with phishing detection features.</li>
+                <li>Never scan QR codes from untrusted sources.</li>
+                <li>Block unknown senders for SMS and enable spam filtering.</li>
+            </ul>
+        </div>
+
+        <!-- Right Section: Visual & Real Examples -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Mobile securityillustration.png" 
+                 alt="Mobile security illustration" 
+                 class="rounded-lg shadow-md">
+
+            <div class="bg-red-50 border border-red-300 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> In 2022, a fake banking app on Google Play mimicked a real bank and stole over $1 million before removal.
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-300 p-3 rounded text-sm text-gray-700">
+                <strong>Warning:</strong> Mobile screens hide full URLs — always tap and inspect links before clicking.
+            </div>
+
+            <div class="bg-green-50 border border-green-300 p-3 rounded text-sm text-gray-700">
+                <strong>Pro Tip:</strong> Enable “Safe Browsing” in Chrome/Safari to block known phishing sites automatically.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+        <!-- Slide 20: Anatomy of a Phishing Kit -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Inside a Phishing Kit</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Section: Details -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Common Components:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3">
+                <li><strong>Fake Login Pages (HTML/CSS)</strong> – Designed to mimic real websites (banks, email providers) with identical UI.</li>
+                <li><strong>Credential Harvesting Scripts (PHP, Python, Node.js)</strong> – Capture and send usernames/passwords to attacker-controlled servers.</li>
+                <li><strong>Email Templates</strong> – Pre-made phishing emails with urgent messages (password reset, account locked).</li>
+                <li><strong>Redirect Scripts</strong> – Move victims to legitimate websites after stealing credentials to avoid suspicion.</li>
+                <li><strong>Victim Tracking Dashboards</strong> – Admin panels showing IP addresses, geolocation, and stolen data.</li>
+                <li><strong>Obfuscation & Encryption Tools</strong> – Hide malicious code from antivirus and scanners.</li>
+                <li><strong>Configuration Files</strong> – Set target brand, redirect links, and email server details.</li>
+                <li><strong>Malware Payloads</strong> – Sometimes bundled with keyloggers or remote access trojans (RATs).</li>
+            </ul>
+
+            <!-- Security Tip -->
+            <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
+                <p class="text-red-700">
+                    <strong>Security Tip:</strong> Phishing kits are often shared on hacking forums and Telegram groups — handling them without a sandbox can infect your system.
+                </p>
+            </div>
+
+            <!-- Prevention Tip -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                <p class="text-green-700">
+                    <strong>Pro Tip:</strong> Security teams use honeypots to collect phishing kits and analyze them for better detection rules.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Section: Visuals & Real Example -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Phishingkitcomponents.png" 
+                 alt="Phishing kit components" 
+                 class="rounded-lg shadow-md">
+
+            <div class="bg-yellow-50 border border-yellow-300 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> In 2021, a popular “Office365 Phish Kit” was sold for $50 on underground forums — it could be deployed in under 5 minutes.
+            </div>
+
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                <strong>Detection Tip:</strong> Phishing kits often reuse the same favicon, HTML structure, and form field names — threat hunters use these fingerprints to track campaigns.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+        <!-- U3VtaXR5YWRhdjc5MDg= -->
+
+
+        <!-- Slide 21: Final Quiz Challenge -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Final Challenge: Is This Email Safe?</h2>
+    <div class="max-w-3xl mx-auto">
+
+        <!-- Email Simulation -->
+        <div class="border border-gray-300 p-4 rounded-lg bg-gray-50 mb-6">
+            <div class="bg-white p-4 border border-gray-200 rounded shadow-sm">
+                <p class="text-gray-800 font-semibold">From: hr@your-company<strong>.net</strong></p>
+                <p class="text-gray-800 font-semibold">Subject: <span class="text-red-600">Required: Update Your Direct Deposit Info</span></p>
+                <p class="text-gray-700 mt-4">Hello Team,</p>
+                <p class="text-gray-700">Our payroll system is being upgraded. To ensure no payment delays, please verify your direct deposit information by clicking below:</p>
+                <p class="text-gray-700 mt-2">
+                    <a href="#" class="text-blue-600 hover:underline">
+                        https://yourcompany<strong>systems.net</strong>/payroll-verify
+                    </a>
+                </p>
+                <p class="text-gray-700 mt-4">Regards,<br>HR Department</p>
+            </div>
+        </div>
+
+        <!-- Hints Section -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+            <p class="text-yellow-700 text-sm"><strong>Clues:</strong> 
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                    <li>Domain mismatch (<code>your-company.net</code> vs. official company domain).</li>
+                    <li>Urgent tone & fear of payment delays.</li>
+                    <li>Link points to a similar but fake domain (<code>yourcompanysystems.net</code>).</li>
+                    <li>Generic salutation (“Hello Team”) instead of your name.</li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- Question -->
+        <div class="quiz-question mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Should you click this link?</h3>
+            <div class="space-y-3">
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 hover:bg-gray-100" onclick="checkAnswer(this, 'wrong')">
+                    ✅ Yes – It looks official and I don't want payment delays
+                </div>
+                <div class="quiz-option bg-gray-50 p-3 rounded-lg border border-gray-200 hover:bg-gray-100" onclick="checkAnswer(this, 'correct')">
+                    ❌ No – I should verify with HR through official channels first
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="quiz-feedback hidden bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+            <p class="text-green-700"><strong>Correct!</strong> Always confirm payment or personal data requests with HR directly using known contact methods.</p>
+        </div>
+        <div class="quiz-feedback hidden bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+            <p class="text-red-700"><strong>Incorrect.</strong> This is a common spear-phishing tactic. Attackers often target payroll systems to steal salaries.</p>
+        </div>
+
+        <!-- Extra Learning -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+            <p class="text-blue-700 text-sm">
+                <strong>Did you know?</strong> In 2022, payroll phishing scams cost businesses over <strong>$100M</strong> globally. 
+                Scammers often register fake domains within hours of launching their campaigns.
+            </p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+       <!-- Slide 22: Psychological Tactics -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Psychological Manipulation Techniques in Phishing</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Column: Tactics -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Common Tactics Used by Attackers:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3 text-sm">
+                <li><strong>False Urgency or Scarcity:</strong> “Your account will be closed in 24 hours” – pressures victims to act without thinking.</li>
+                <li><strong>Authority Bias:</strong> Pretending to be from the CEO, government, or law enforcement to trigger compliance.</li>
+                <li><strong>Social Proof:</strong> “Over 500 employees have already updated their account” – making you think it’s safe.</li>
+                <li><strong>Reciprocity:</strong> Offering fake refunds or rewards to create a sense of obligation.</li>
+                <li><strong>Consistency Traps:</strong> Starting with a small harmless request, then escalating to sensitive actions.</li>
+                <li><strong>Fear & Threats:</strong> Threatening legal action, account suspension, or financial loss.</li>
+                <li><strong>Greed & Curiosity:</strong> “You have won a prize!” or “Click here to see who viewed your profile.”</li>
+                <li><strong>Familiarity Exploitation:</strong> Using names of colleagues or family members to build trust.</li>
+                <li><strong>Urgent Help Requests:</strong> “I’m stranded abroad, please send money immediately.”</li>
+            </ul>
+
+
+            <!-- U3VtaXR5YWRhdjc5MDg= -->
+
+            <!-- Security Tip -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 mt-4 text-sm">
+                <p class="text-green-700">
+                    <strong>Security Tip:</strong> Pause and verify requests before acting – even a short delay can prevent a breach.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Image + Example -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Psychologicalmanipulationillustration.png" alt="Psychological manipulation illustration" class="rounded-lg shadow-md">
+
+            <!-- Real Example Box -->
+            <div class="bg-yellow-50 border border-yellow-400 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> A fake “HR” email tells you to “Update your tax form immediately or risk salary delay.” 
+                This uses <em>false urgency</em> + <em>authority bias</em> to manipulate you.
+            </div>
+
+            <!-- Fun Fact -->
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                <strong>Did you know?</strong> Research shows urgent phishing emails get 3x more clicks than normal ones.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+        <!-- Slide 23: Recent Phishing Trends -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Emerging Phishing Trends (2024–2025)</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Column: Threats List -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Current & Emerging Threats:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3 text-sm">
+                <li><strong>AI-Generated Phishing Content:</strong> Attackers use AI tools to create highly convincing, grammatically perfect phishing emails that bypass spam filters.</li>
+                <li><strong>Deepfake Voice Phishing (Vishing):</strong> Fraudsters mimic voices of CEOs or family members to request urgent money transfers.</li>
+                <li><strong>Deepfake Video Phishing:</strong> Fake video calls impersonating executives to approve transactions or release data.</li>
+                <li><strong>Cryptocurrency Scams:</strong> Fake investment platforms, wallet recovery scams, and “giveaway” frauds targeting crypto users.</li>
+                <li><strong>Supply Chain Phishing:</strong> Hackers compromise vendors to send phishing emails from trusted business partners.</li>
+                <li><strong>Multi-Channel Attacks:</strong> Coordinated phishing across email, SMS (smishing), calls, and social media.</li>
+                <li><strong>QR Code Phishing (Quishing):</strong> Fake QR codes leading to credential-stealing websites.</li>
+                <li><strong>OAuth App Consent Phishing:</strong> Tricking users into granting access to malicious third-party applications.</li>
+            </ul>
+
+            <!-- Prevention Tip -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 text-sm">
+                <p class="text-green-700">
+                    <strong>Pro Tip:</strong> Enable multi-factor authentication (MFA) and verify all unusual requests through secondary channels.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Image + Examples -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Infographicofphishingtrends.png" alt="Infographic of phishing trends" class="rounded-lg shadow-md">
+
+            <!-- Real Incident Example -->
+            <div class="bg-yellow-50 border border-yellow-400 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> In 2024, a multinational company lost $25M after a deepfake voice convinced the CFO to transfer funds to a “supplier.”
+            </div>
+
+            <!-- Stats Box -->
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                <strong>Stat:</strong> 81% of organizations reported at least one AI-powered phishing attempt in 2024 (<em>Proofpoint Security Report</em>).
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+
+       <!-- Slide 24: Defense Strategies -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Advanced Defense Strategies</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Column: Proactive Measures -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Proactive Measures:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3 text-sm">
+                <li><strong>Implement Email Authentication Protocols:</strong> Use <span class="font-semibold">DMARC, SPF, and DKIM</span> to prevent spoofing and unauthorized use of your domain in phishing campaigns.</li>
+                <li><strong>Regular Security Awareness Training:</strong> Conduct <span class="italic">monthly simulations</span> to keep employees alert to new phishing techniques.</li>
+                <li><strong>AI-Powered Threat Detection:</strong> Leverage AI/ML-based email filtering to detect patterns humans may miss, including spear-phishing and zero-day threats.</li>
+                <li><strong>Zero-Trust Architecture:</strong> Assume breach and verify every access request regardless of location or device.</li>
+                <li><strong>Behavioral Analytics:</strong> Monitor user activity to detect anomalies like unusual login times, impossible travel logins, or mass file downloads.</li>
+                <li><strong>Threat Intelligence Feeds:</strong> Integrate real-time phishing URL and malware hash databases to block known threats immediately.</li>
+                <li><strong>Multi-Factor Authentication (MFA):</strong> Require MFA for all sensitive accounts to reduce impact if credentials are compromised.</li>
+                <li><strong>Security Orchestration & Automation (SOAR):</strong> Automate phishing email analysis, quarantine, and user notifications for faster incident response.</li>
+            </ul>
+
+            <!-- Pro Tip Box -->
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 text-sm">
+                <p class="text-green-700">
+                    <strong>Pro Tip:</strong> Layer defenses — no single tool stops all phishing. Combine email filtering, training, and authentication.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Visual + Examples -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Defensestrategiesillustration.png" 
+                 alt="Defense strategies illustration" class="rounded-lg shadow-md">
+
+            <!-- Real-World Example -->
+            <div class="bg-yellow-50 border border-yellow-400 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> In 2024, a Fortune 500 company reduced phishing click rates by <strong>76%</strong> after introducing AI-based detection + monthly simulations.
+            </div>
+
+            <!-- Stats -->
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                <strong>Stat:</strong> Organizations with DMARC enforcement reduce phishing email delivery by over <strong>90%</strong> (<em>Valimail Security Report 2024</em>).
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+       <!-- Slide 25: Compliance and Regulations -->
+<div class="slide bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Legal and Compliance Aspects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Left Column: Key Considerations -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Key Considerations:</h3>
+            <ul class="list-disc pl-5 text-gray-700 mb-6 space-y-3 text-sm">
+                <li><strong>GDPR (EU):</strong> Requires breach notification within <strong>72 hours</strong> to regulators and impacted users if personal data is exposed.</li>
+                <li><strong>CCPA (California):</strong> Grants consumers rights to know, delete, and opt-out of personal data collection.</li>
+                <li><strong>Industry-Specific Regulations:</strong>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li><strong>PCI DSS:</strong> Payment card security requirements for merchants.</li>
+                        <li><strong>HIPAA:</strong> Healthcare data protection and breach reporting.</li>
+                        <li><strong>SOX:</strong> Financial reporting security for public companies.</li>
+                    </ul>
+                </li>
+                <li><strong>Incident Response Planning:</strong> Many laws require documented and tested IR plans to handle breaches.</li>
+                <li><strong>Employee Training Requirements:</strong> Some regulations (e.g., NYDFS Cybersecurity Rule) mandate phishing awareness training.</li>
+                <li><strong>Third-Party Vendor Risk Management:</strong> Ensure suppliers comply with your security standards (ISO 27001, SOC 2, etc.).</li>
+                <li><strong>Data Localization Laws:</strong> Some countries require sensitive data to be stored domestically.</li>
+                <li><strong>International Compliance:</strong> If your business is global, you may need to follow multiple regulations (GDPR, PDPA, LGPD, etc.).</li>
+            </ul>
+
+            <!-- Pro Tip Box -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-sm">
+                <p class="text-yellow-700">
+                    <strong>Pro Tip:</strong> Maintain a compliance calendar to track reporting deadlines and audits.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Visual + Examples -->
+        <div class="flex flex-col items-center space-y-4">
+            <img src="images/Complianceregulations.png" 
+                 alt="Compliance regulations" class="rounded-lg shadow-md">
+
+            <!-- Real-World Example -->
+            <div class="bg-blue-50 border border-blue-300 p-3 rounded text-sm text-gray-700">
+                <strong>Example:</strong> In 2023, a European retailer was fined <strong>€1.5M</strong> under GDPR for failing to notify users about a phishing-related data breach within 72 hours.
+            </div>
+
+            <!-- Best Practice -->
+            <div class="bg-green-50 border border-green-400 p-3 rounded text-sm text-gray-700">
+                <strong>Best Practice:</strong> Regularly audit your compliance posture with <em>internal reviews</em> and <em>third-party assessments</em>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-8">
+        <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">Back</button>
+        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">Next</button>
+    </div>
+</div>
+
+     <div class="slide bg-gradient-to-b from-white to-gray-50 rounded-lg shadow-2xl p-10">
+    <div class="flex flex-col items-center text-center space-y-8">
+
+        <!-- Heading -->
+        <div>
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-3">🎯 Training Completed!</h1>
+            <p class="text-lg text-gray-600">
+                You’ve successfully finished the <strong>Phishing Awareness Module</strong>.<br>
+                You are now better prepared to identify and block cyber threats.
+            </p>
+        </div>
+
+        <!-- Image -->
+        <img src="images/StayCyberSafe.png"
+             alt="Stay Cyber Safe" 
+             class="w-60 h-auto rounded-lg shadow-lg border border-gray-200">
+
+        <!-- Two-column Summary -->
+        <div class="grid md:grid-cols-2 gap-6 w-full max-w-5xl text-left">
+
+            <!-- Key Takeaways -->
+            <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-green-800 mb-3">📌 Key Takeaways</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Verify email senders & check URLs before clicking.</li>
+                    <li>Never share passwords, OTPs, or sensitive data online.</li>
+                    <li>Report suspicious messages immediately to IT/security team.</li>
+                    <li>Keep all devices & security software updated.</li>
+                    <li>Think twice — phishing thrives on urgency & fear.</li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg shadow-sm">
+                <h3 class="text-xl font-bold text-blue-800 mb-3">🚀 Next Steps</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Join quarterly phishing simulation exercises.</li>
+                    <li>Share this knowledge with friends, family, & coworkers.</li>
+                    <li>Bookmark security resources for quick reference.</li>
+                    <li>Track and study new phishing & cybercrime trends.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quote -->
+        <blockquote class="italic text-lg text-gray-600 border-l-4 border-yellow-400 pl-4 max-w-3xl">
+            "Cybersecurity is not a one-time task — it’s a daily habit. Stay alert, stay safe!"
+        </blockquote>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-4 mt-6">
+            <button onclick="prevSlide()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-5 rounded-lg">
+                ⬅ Back
+            </button>
+            <button onclick="nextSlide()" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg">
+                🔄 Restart Training
+            </button>
+           
+        </div>
+    </div>
+</div>
+
+    <script>
+      
+
+        /* -------------------------------
+   PHISHING SIMULATION LOGIC  U3VtaXR5YWRhdjc5MDg
+----------------------------------*/
+const simEmails = [
+  {
+    from: "security@your-bank.com",
+    subject: "URGENT: Verify your account now",
+    body: "We've noticed suspicious login attempts. Click the link below to verify or your account will be suspended.",
+    link: "https://your-bank.com.verify-now.xyz/login",
+    flags: ["urgent_request", "misspelled_domain"],
+    image: "images/phishing-sim-1.png"
+  },
+  {
+    from: "newsletter@trustedshop.com",
+    subject: "Your monthly deals are here!",
+    body: "Hello John, enjoy our curated deals for loyal customers. No action needed.",
+    link: "https://trustedshop.com/deals",
+    flags: [],
+    image: "images/trustedshop.png"
+  },
+  {
+    from: "it-support@company.com",
+    subject: "Password reset required",
+    body: "We require everyone to reset passwords via the portal: https://company-portal.com/reset",
+    link: "https://company-portal.com/reset",
+    flags: ["suspicious_sender"],
+    image: "images/company-reset.png"
+  },
+  {
+    from: "billing@paypai-security.com",
+    subject: "Invoice attached - immediate action required",
+    body: "Invoice attached for your recent order. Open attachment to avoid late fees.",
+    link: "https://paypai-security.com/invoice",
+    flags: ["misspelled_domain", "unexpected_attachment"],
+    image: "images/invoice-fake.png"
+  },
+  {
+    from: "admin@yourcompany.edu",
+    subject: "Mandatory training - Complete now",
+    body: "Please complete mandatory security training by clicking the link below.",
+    link: "https://yourcompany.edu/training",
+    flags: ["generic_greeting"],
+    image: "images/training.png"
+  }
+];
+
+let simIndex = 0;
+let simScore = 0;
+let simCorrect = 0;
+let simWrong = 0;
+let simActive = false;
+
+function startSimulation() {
+  simIndex = 0;
+  simScore = simCorrect = simWrong = 0;
+  simActive = true;
+  document.getElementById('btn-restart-sim').classList.add('hidden');
+  loadSimEmail(simIndex);
+  updateSimScore();
+}
+
+function loadSimEmail(index) {
+  const e = simEmails[index];
+  document.getElementById('email-from').textContent = e.from;
+  document.getElementById('email-subject').textContent = e.subject;
+  document.getElementById('email-body').textContent = e.body;
+  document.getElementById('email-link-url').textContent = e.link;
+  document.getElementById('email-link-url').setAttribute('data-real', e.link);
+  document.getElementById('email-link-url').setAttribute('href', '#');
+  document.getElementById('email-index').textContent = `${index + 1} / ${simEmails.length}`;
+  // update image if exists
+  const img = document.getElementById('sim-image');
+  if (e.image) img.src = e.image;
+  // reset UI
+  document.getElementById('sim-feedback').textContent = '';
+  document.querySelectorAll('.flag-checkbox').forEach(cb => cb.checked = false);
+  document.getElementById('btn-phishing').classList.remove('opacity-50');
+  document.getElementById('btn-safe').classList.remove('opacity-50');
+}
+
+function evaluateSimAnswer(markedPhishing) {
+  if (!simActive) return;
+  const email = simEmails[simIndex];
+  // determine truth: is phishing if email has >=1 flag (for this simulation)
+  const truth = email.flags.length > 0;
+  // collect selected flags
+  const checked = Array.from(document.querySelectorAll('.flag-checkbox:checked')).map(cb => cb.value);
+  // Score logic:
+  let points = 0;
+  // correct identification
+  if ((markedPhishing && truth) || (!markedPhishing && !truth)) {
+    points += 1;
+    simCorrect++;
+  } else {
+    simWrong++;
+  }
+  // reward for correct flags (exact match elements)
+  const correctFlagMatches = checked.filter(f => email.flags.includes(f)).length;
+  points += correctFlagMatches * 0.5; // 0.5 points per correctly identified flag
+  simScore += points;
+
+  // feedback text
+  let fb = '';
+  if (points === 0) {
+    fb = 'No — that answer missed key warning signs.';
+    document.getElementById('sim-feedback').className = 'text-red-600';
+  } else {
+    fb = `Good — +${points.toFixed(1)} pts. Correct flags: ${correctFlagMatches}`;
+    document.getElementById('sim-feedback').className = 'text-green-600';
+  }
+  document.getElementById('sim-feedback').textContent = fb;
+
+  // move to next email after short delay
+  updateSimScore();
+  setTimeout(() => {
+    simIndex++;
+    if (simIndex < simEmails.length) {
+      loadSimEmail(simIndex);
+    } else {
+      endSimulation();
+    }
+  }, 900);
+}
+
+function skipSimEmail() {
+  // skipping penalizes slightly
+  simWrong++;
+  simIndex++;
+  updateSimScore();
+  if (simIndex < simEmails.length) {
+    loadSimEmail(simIndex);
+  } else {
+    endSimulation();
+  }
+}
+
+function updateSimScore() {
+  document.getElementById('sim-score').textContent = simScore.toFixed(1);
+  document.getElementById('sim-correct').textContent = simCorrect;
+  document.getElementById('sim-wrong').textContent = simWrong;
+}
+
+function endSimulation() {
+  simActive = false;
+  // show final summary in the UI area
+  const root = document.getElementById('sim-root');
+  const summary = `
+    <div class="col-span-2 bg-white p-4 rounded-lg border border-gray-200">
+      <h3 class="text-lg font-semibold mb-2">Simulation Complete</h3>
+      <p class="text-gray-700 mb-2">Final Score: <strong>${simScore.toFixed(1)}</strong></p>
+      <p class="text-gray-700 mb-2">Correct Identifications: ${simCorrect} • Incorrect/Skipped: ${simWrong}</p>
+      <p class="text-gray-700">Review the red flags you missed and revisit the training slides for improvement.</p>
+    </div>
+  `;
+  // append summary below simulation panel
+  root.insertAdjacentHTML('beforeend', summary);
+  document.getElementById('btn-restart-sim').classList.remove('hidden');
+  document.getElementById('btn-restart-sim').addEventListener('click', () => {
+    // remove summary
+    const items = root.querySelectorAll('.col-span-2');
+    items.forEach(it => it.remove());
+    startSimulation();
+  });
+}
+
+/* -------------------------------
+   SIM BUTTON HOOKUPS
+----------------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+  // wire up buttons
+  document.getElementById('btn-phishing').addEventListener('click', () => {
+    // provide visual active style
+    document.getElementById('btn-phishing').classList.add('shadow-inner');
+    document.getElementById('btn-safe').classList.remove('shadow-inner');
+    // store choice visually (no persistent state needed)
+    document.getElementById('btn-phishing').dataset.selected = '1';
+    document.getElementById('btn-safe').dataset.selected = '';
+  });
+  document.getElementById('btn-safe').addEventListener('click', () => {
+    document.getElementById('btn-safe').classList.add('shadow-inner');
+    document.getElementById('btn-phishing').classList.remove('shadow-inner');
+    document.getElementById('btn-safe').dataset.selected = '1';
+    document.getElementById('btn-phishing').dataset.selected = '';
+  });
+
+  document.getElementById('btn-submit-sim').addEventListener('click', () => {
+    // if neither selected, show a hint
+    const ph = document.getElementById('btn-phishing').dataset.selected === '1';
+    const sf = document.getElementById('btn-safe').dataset.selected === '1';
+    if (!ph && !sf) {
+      const f = document.getElementById('sim-feedback');
+      f.className = 'text-yellow-600';
+      f.textContent = 'Please choose Phishing or Safe before submitting.';
+      return;
+    }
+    evaluateSimAnswer(ph);
+    // clear the selection for next card
+    document.getElementById('btn-phishing').dataset.selected = '';
+    document.getElementById('btn-safe').dataset.selected = '';
+    document.getElementById('btn-phishing').classList.remove('shadow-inner');
+    document.getElementById('btn-safe').classList.remove('shadow-inner');
+  });
+
+  document.getElementById('btn-skip-sim').addEventListener('click', skipSimEmail);
+  document.getElementById('btn-restart-sim').addEventListener('click', () => {
+    // visible via hidden -> start
+    const items = document.getElementById('sim-root').querySelectorAll('.col-span-2');
+    items.forEach(it => it.remove());
+    startSimulation();
+  });
+
+  // start automatically when slide loads
+  startSimulation();
+});
+
+
+    /* -------------------------------
+       QUIZ FUNCTIONALITY
+    --------------------------------*/
+    function checkAnswer(element, isCorrect) {
+        const allOptions = document.querySelectorAll('.quiz-option');
+        const correctFeedback = document.querySelector('.quiz-feedback.bg-green-50');
+        const wrongFeedback = document.querySelector('.quiz-feedback.bg-red-50');
+
+        // Reset option styles
+        allOptions.forEach(opt => {
+            opt.classList.remove('bg-green-50', 'border-green-400', 'bg-red-50', 'border-red-400');
+        });
+
+        // Show feedback and style the selected option
+        if (isCorrect === 'correct') {
+            element.classList.add('bg-green-50', 'border-green-400');
+            correctFeedback?.classList.remove('hidden');
+            wrongFeedback?.classList.add('hidden');
+        } else {
+            element.classList.add('bg-red-50', 'border-red-400');
+            wrongFeedback?.classList.remove('hidden');
+            correctFeedback?.classList.add('hidden');
+        }
+    }
+
+    /* -------------------------------
+       SLIDE NAVIGATION
+    --------------------------------*/
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active-slide', i === index);
+        });
+        updateProgressBar();
+        window.scrollTo(0, 0);
+    }
+
+    function nextSlide() {
+    if (currentSlide < totalSlides - 1) {
+        currentSlide++; // go to next
+    } else {
+        currentSlide = 0; // restart from first slide
+    }
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        currentSlide--; // go to previous
+    } else {
+        currentSlide = totalSlides - 1; // jump to last slide
+    }
+    showSlide(currentSlide);
+}
+    /* -------------------------------
+       PROGRESS BAR
+    --------------------------------*/
+    function updateProgressBar() {
+        const percentage = ((currentSlide + 1) / totalSlides) * 100;
+        document.querySelector('.progress-bar').style.width = `${percentage}%`;
+    }
+
+    /* -------------------------------
+       DARK MODE TOGGLE
+    --------------------------------*/
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function setDarkMode(isDark) {
+        document.documentElement.classList.toggle('dark', isDark);
+        themeIcon.setAttribute('d', isDark
+            ? 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z'
+            : 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21c4.97 0 9-4.03 9-9a9.002 9.002 0 00-.646-3.354z'
+        );
+    }
+
+    if (prefersDark) setDarkMode(true);
+
+    themeToggle.addEventListener('click', () => {
+        setDarkMode(!document.documentElement.classList.contains('dark'));
+    });
+
+    /* -------------------------------
+       INITIALIZATION
+    --------------------------------*/
+    showSlide(currentSlide);
+</script>
+</body>
+</html>
